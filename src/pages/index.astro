@@ -1,0 +1,115 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const features = [
+  {
+    title: 'Affinity Scripts',
+    desc: 'Ready-to-use scripts for Affinity Designer, Photo, and Publisher.',
+    href: '/scripts/',
+  },
+  {
+    title: 'Blog',
+    desc: 'Tutorials, tips, and deep dives into the Affinity SDK.',
+    href: '/blog/',
+  },
+  {
+    title: 'Affinity Scripting Tutorial',
+    desc: 'A complete, structured tutorial for scripting Affinity by Canva with JavaScript.',
+    href: 'https://ast.middledot.com',
+    external: true,
+  },
+];
+---
+
+<BaseLayout title="middledot — Affinity Scripts & Resources" showSearch={false}>
+  <section class="hero page-hero">
+    <div class="container">
+      <span class="eyebrow">Built for Affinity</span>
+      <h1>Tutorials, Scripts &amp; Tools for<br />Affinity by Canva</h1>
+      <p>Explore a growing collection of scripts, tutorials, and documentation to supercharge your Affinity workflow.</p>
+      <div class="hero-actions">
+        <a href="/scripts/" class="btn btn-primary">Browse Scripts</a>
+        <a href="/blog/" class="btn btn-outline">Read the Blog</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="features section">
+    <div class="container">
+      <div class="grid grid-3">
+        {features.map(({ title, desc, href, external }) => (
+          <a
+            href={href}
+            class="card feature-card"
+            {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+          >
+            <h3 class="card-title">{title}</h3>
+            <p class="card-desc">{desc}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta section">
+    <div class="container text-center">
+      <h2>Stay in the loop</h2>
+      <p class="cta-desc">Get notified when new scripts and tutorials drop.</p>
+      <a href="/newsletter/" class="btn btn-primary">Subscribe to the Newsletter</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style is:global>
+  .hero {
+    background: linear-gradient(
+      180deg,
+      var(--surface) 0%,
+      var(--bg) 100%
+    );
+    text-align: center;
+    padding-block: clamp(4rem, 10vw, 7rem) clamp(3rem, 7vw, 6rem);
+  }
+
+  .hero h1 {
+    margin-block-end: var(--space-md);
+    letter-spacing: 0.02em;
+  }
+
+  .hero p {
+    font-size: 1.125rem;
+    color: var(--text-muted);
+    max-inline-size: 55ch;
+    margin-inline: auto;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-md);
+    margin-block-start: var(--space-xl);
+  }
+
+  .feature-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .cta {
+    background: var(--surface);
+    border-block: 1px solid var(--border);
+  }
+
+  .cta h2 {
+    margin-block-end: var(--space-sm);
+  }
+
+  .cta-desc {
+    color: var(--text-muted);
+    margin-block-end: var(--space-xl);
+    margin-inline: auto;
+  }
+</style>

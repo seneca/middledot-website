@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const docsLinks = [
+  { href: '/docs/getting-started/', label: 'Getting Started' },
+  { href: '/docs/installation/', label: 'Installation' },
+  { href: '/docs/api-reference/', label: 'API Reference' },
+];
+---
+
+<BaseLayout title="Documentation — middledot">
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Documentation</span>
+      <h1>Documentation</h1>
+      <p>Comprehensive guides for building with the Affinity JavaScript SDK.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container section-layout">
+      <nav class="docs-sidebar" aria-label="Documentation navigation">
+        {docsLinks.map(({ href, label }) => (
+          <a href={href} class="docs-link">{label}</a>
+        ))}
+      </nav>
+      <div class="prose">
+        <p class="text-muted">Documentation is coming soon. Check back for comprehensive guides on the Affinity JavaScript SDK.</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style is:global>
+  .docs-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .docs-link {
+    display: block;
+    padding: var(--space-sm) var(--space-md);
+    font-size: 0.9375rem;
+    color: var(--text-muted);
+    border-radius: var(--radius);
+    text-decoration: none;
+    transition: color var(--transition), background var(--transition);
+  }
+
+  .docs-link:hover,
+  .docs-link[aria-current='page'] {
+    color: var(--brand);
+    background: var(--surface);
+  }
+
+  @media (max-width: 860px) {
+    .docs-sidebar {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    .docs-link {
+      padding: var(--space-xs) var(--space-md);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+    }
+  }
+</style>

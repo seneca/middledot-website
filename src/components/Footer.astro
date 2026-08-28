@@ -1,0 +1,96 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="footer-inner container">
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <div class="footer-pills footer-pills-left">
+        <a class="footer-pill" href="/blog/">Blog</a>
+        <a class="footer-pill" href="/scripts/">Scripts</a>
+        <a class="footer-pill" href="https://ast.middledot.com" target="_blank" rel="noopener noreferrer">Affinity Scripting</a>
+      </div>
+      <div class="footer-pills footer-pills-right">
+        <a class="footer-pill" href="/newsletter/">Newsletter</a>
+      </div>
+    </nav>
+  </div>
+
+  <div class="footer-bottom container">
+    <p>&copy; {currentYear} middledot. All rights reserved.</p>
+  </div>
+</footer>
+
+<style is:global>
+  .site-footer {
+    margin-block-start: auto;
+    padding-block: var(--space-xl) var(--space-md);
+    background: var(--slate-900);
+    color: var(--slate-300);
+  }
+
+  [data-theme='dark'] .site-footer {
+    background: #020617;
+  }
+
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    padding-block-end: var(--space-md);
+    border-block-end: 1px solid var(--slate-700);
+  }
+
+  .footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-lg);
+    inline-size: 100%;
+  }
+
+  .footer-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+  }
+
+  .footer-pills-right {
+    margin-inline-start: auto;
+  }
+
+  .footer-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-inline-size: 8.5rem;
+    padding: 0.45rem 1.25rem;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    color: var(--slate-300);
+    text-decoration: none;
+    background-color: transparent;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-full);
+    transition: color var(--transition), border-color var(--transition),
+      background-color var(--transition);
+  }
+
+  .footer-pill:hover {
+    color: #fff;
+    border-color: var(--brand);
+    background-color: color-mix(in oklch, var(--brand) 15%, transparent);
+  }
+
+  .footer-bottom {
+    padding-block-start: var(--space-md);
+    font-size: 0.8125rem;
+    color: var(--slate-400);
+  }
+
+  @media (max-width: 560px) {
+    .footer-pill {
+      min-inline-size: 7rem;
+      flex: 1 1 auto;
+    }
+  }
+</style>

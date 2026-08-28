@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Newsletter — middledot" description="Get notified when new Affinity scripts and tutorials drop.">
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Newsletter</span>
+      <h1>Stay in the loop</h1>
+      <p>Get notified when new scripts, tutorials, and resources are published.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="newsletter-card">
+        <!-- Replace with your Buttondown/Formspree form -->
+        <form class="newsletter-form" action="#" method="post">
+          <label for="email" class="newsletter-label">Email address</label>
+          <div class="newsletter-row">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="you@example.com"
+              required
+              class="newsletter-input"
+            />
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </div>
+          <p class="newsletter-note">No spam. Unsubscribe anytime.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style is:global>
+  .newsletter-card {
+    max-inline-size: 480px;
+    margin-inline: auto;
+    padding: var(--space-2xl);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+  }
+
+  .newsletter-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--heading);
+    margin-block-end: var(--space-sm);
+  }
+
+  .newsletter-row {
+    display: flex;
+    gap: var(--space-sm);
+  }
+
+  .newsletter-input {
+    flex: 1;
+    padding: 0.625rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg);
+    color: var(--text);
+    font-size: 0.9375rem;
+    transition: border-color var(--transition);
+  }
+
+  .newsletter-input:focus {
+    outline: 2px solid var(--brand);
+    outline-offset: 2px;
+    border-color: var(--brand);
+  }
+
+  /* :user-valid / :user-invalid — progressive enhancement */
+  @supports selector(:user-valid) {
+    .newsletter-input:user-valid {
+      border-color: var(--success);
+    }
+
+    .newsletter-input:user-invalid {
+      border-color: var(--error);
+    }
+  }
+
+  .newsletter-note {
+    margin-block-start: var(--space-sm);
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 480px) {
+    .newsletter-row {
+      flex-direction: column;
+    }
+  }
+</style>

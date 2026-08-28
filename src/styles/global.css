@@ -1,0 +1,9 @@
+/* global.css — Entry point: declares @layer order and imports all other files */
+
+@layer reset, base, components, utilities;
+
+@import './tokens.css';
+@import './base.css';
+@import './components.css';
+@import './utilities.css';
+@import './responsive.css';

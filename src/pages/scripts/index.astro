@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const scripts = (await getCollection('scripts'))
+  .filter((s) => !s.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout title="Scripts — middledot">
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Scripts</span>
+      <h1>Affinity scripts</h1>
+      <p>Ready-to-use scripts for Affinity Designer, Photo, and Publisher.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      {scripts.length === 0 ? (
+        <p class="text-muted">No scripts yet. Check back soon!</p>
+      ) : (
+        <div class="grid grid-2 scripts-grid">
+          {scripts.map((script) => (
+            <a href={`/scripts/${script.id}/`} class="card">
+              <h2 class="card-title">{script.data.title}</h2>
+              {script.data.description && (
+                <p class="card-desc">{script.data.description}</p>
+              )}
+              <div class="card-meta">
+                {script.data.affinityVersion && (
+                  <span class="card-tag">{script.data.affinityVersion}</span>
+                )}
+                {script.data.tags.map((tag) => (
+                  <span class="card-tag">{tag}</span>
+                ))}
+              </div>
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>
+
+<style is:global>
+  .scripts-grid {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 200px;
+  }
+</style>

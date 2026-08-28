@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BaseLayout title={`${post.data.title} — middledot`} description={post.data.description}>
+  <article>
+    <section class="page-hero post-hero">
+      <div class="container">
+        <a href="/blog/" class="back-link">&larr; Back to blog</a>
+        <time datetime={post.data.pubDate.toISOString()}>
+          {post.data.pubDate.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          })}
+        </time>
+        <h1>{post.data.title}</h1>
+        {post.data.description && <p>{post.data.description}</p>}
+        {post.data.tags.length > 0 && (
+          <div class="card-meta">
+            {post.data.tags.map((tag) => (
+              <span class="card-tag">{tag}</span>
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="prose">
+          <Content />
+        </div>
+      </div>
+    </section>
+  </article>
+</BaseLayout>
+
+<style is:global>
+  .post-hero time {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-block-end: var(--space-sm);
+  }
+
+  .post-hero h1 {
+    margin-block-end: var(--space-sm);
+  }
+
+  .back-link {
+    display: inline-block;
+    font-size: 0.875rem;
+    color: var(--brand);
+    margin-block-end: var(--space-md);
+    text-decoration: none;
+  }
+
+  .back-link:hover {
+    text-decoration: underline;
+  }
+</style>

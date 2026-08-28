@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout title="Blog — middledot">
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Blog</span>
+      <h1>Latest posts</h1>
+      <p>Tutorials, tips, and deep dives into the Affinity SDK.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      {posts.length === 0 ? (
+        <p class="text-muted">No posts yet. Check back soon!</p>
+      ) : (
+        <div class="grid grid-2 blog-grid">
+          {posts.map((post) => (
+            <a href={`/blog/${post.id}/`} class="card">
+              <time class="card-meta" datetime={post.data.pubDate.toISOString()}>
+                {post.data.pubDate.toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                })}
+              </time>
+              <h2 class="card-title">{post.data.title}</h2>
+              {post.data.description && (
+                <p class="card-desc">{post.data.description}</p>
+              )}
+              {post.data.tags.length > 0 && (
+                <div class="card-meta">
+                  {post.data.tags.map((tag) => (
+                    <span class="card-tag">{tag}</span>
+                  ))}
+                </div>
+              )}
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>
+
+<style is:global>
+  .blog-grid {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 200px;
+  }
+</style>

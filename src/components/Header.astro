@@ -1,0 +1,209 @@
+---
+import DarkModeToggle from './DarkModeToggle.astro';
+import SearchWidget from './SearchWidget.astro';
+
+interface Props {
+  showSearch?: boolean;
+}
+
+const { showSearch = true } = Astro.props;
+
+const navLinks = [
+  { href: '/blog/', label: 'Blog' },
+  { href: '/scripts/', label: 'Scripts' },
+  { href: 'https://ast.middledot.com', label: 'Affinity Scripting', external: true },
+];
+---
+
+<header class="site-header">
+  <div class="header-inner container">
+    <a href="/" class="brand" aria-label="middledot home">
+      <span class="brand-mark">&middot;</span> middledot
+    </a>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      {navLinks.map(({ href, label, external }) => (
+        <a
+          href={href}
+          class="nav-link"
+          aria-current={!external && Astro.url.pathname.startsWith(href) ? 'page' : undefined}
+          {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+        >
+          {label}
+        </a>
+      ))}
+      {showSearch && <SearchWidget />}
+      <DarkModeToggle />
+    </nav>
+
+    <button
+      class="nav-toggle"
+      aria-label="Toggle navigation"
+      aria-expanded="false"
+      aria-controls="main-nav"
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line class="toggle-open" x1="3" y1="6" x2="21" y2="6" />
+        <line class="toggle-open" x1="3" y1="12" x2="21" y2="12" />
+        <line class="toggle-open" x1="3" y1="18" x2="21" y2="18" />
+        <line class="toggle-close" x1="6" y1="6" x2="18" y2="18" style="display:none" />
+        <line class="toggle-close" x1="6" y1="18" x2="18" y2="6" style="display:none" />
+      </svg>
+    </button>
+  </div>
+</header>
+
+<script is:inline>
+  (function () {
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.main-nav');
+    if (!toggle || !nav) return;
+
+    toggle.addEventListener('click', () => {
+      const open = nav.hasAttribute('data-open');
+      if (open) {
+        nav.removeAttribute('data-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.querySelector('.toggle-open').style.display = '';
+        toggle.querySelector('.toggle-close').style.display = 'none';
+      } else {
+        nav.setAttribute('data-open', '');
+        toggle.setAttribute('aria-expanded', 'true');
+        toggle.querySelector('.toggle-open').style.display = 'none';
+        toggle.querySelector('.toggle-close').style.display = '';
+      }
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && nav.hasAttribute('data-open')) {
+        nav.removeAttribute('data-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.querySelector('.toggle-open').style.display = '';
+        toggle.querySelector('.toggle-close').style.display = 'none';
+      }
+    });
+  })();
+</script>
+
+<style is:global>
+  .site-header {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 50;
+    background: color-mix(in oklch, var(--bg) 85%, transparent);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-block-end: 1px solid var(--border);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    block-size: 4rem;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.15em;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--heading);
+    text-decoration: none;
+  }
+
+  .brand-mark {
+    font-size: 2em;
+    line-height: 0;
+    color: var(--brand);
+  }
+
+  .main-nav {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+  }
+
+  .nav-link {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color var(--transition);
+  }
+
+  .nav-link:hover,
+  .nav-link[aria-current='page'] {
+    color: var(--brand);
+  }
+
+  .nav-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    inline-size: 2.5rem;
+    block-size: 2.5rem;
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text);
+    cursor: pointer;
+    transition: border-color var(--transition);
+  }
+
+  .nav-toggle:hover {
+    border-color: var(--brand);
+    color: var(--brand);
+  }
+
+  @media (max-width: 860px) {
+    .nav-toggle {
+      display: flex;
+    }
+
+    .main-nav {
+      position: fixed;
+      inset-block-start: 0;
+      inset-inline-end: 0;
+      z-index: 100;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: var(--space-md);
+      padding: var(--space-xl);
+      min-inline-size: 260px;
+      background: var(--bg);
+      border-inline-start: 1px solid var(--border);
+      box-shadow: var(--shadow-xl);
+      transform: translateX(100%);
+      opacity: 0;
+      visibility: hidden;
+      transition:
+        transform var(--transition-slow),
+        opacity var(--transition-slow),
+        visibility 0s var(--transition-slow);
+    }
+
+    .main-nav[data-open] {
+      transform: translateX(0);
+      opacity: 1;
+      visibility: visible;
+      transition:
+        transform var(--transition-slow),
+        opacity var(--transition-slow),
+        visibility 0s 0s;
+    }
+
+    @starting-style {
+      .main-nav[data-open] {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+    }
+
+    .nav-link {
+      font-size: 1.125rem;
+    }
+  }
+</style>
