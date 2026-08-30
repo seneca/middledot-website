@@ -20,7 +20,7 @@ bun run sync          # regenerate content collection types
   - `blog/**` → blog posts (`src/pages/blog/[...slug].astro`)
   - `scripts/**` → Affinity scripts (`src/pages/scripts/[...slug].astro`)
 - **Layouts:** `src/layouts/` — `BaseLayout.astro` (base HTML shell with dark mode init).
-- **Design:** `src/styles/` — CSS custom-property design system (Inter + Playfair Display). No Tailwind. Split into focused files imported by `global.css`:
+- **Design:** `src/styles/` — CSS custom-property design system (Inter). No Tailwind. Split into focused files imported by `global.css`:
   - `tokens.css` — design tokens (`:root` custom properties, dark mode via `[data-theme='dark']`)
   - `base.css` — reset, element defaults, layout primitives (`.container`, `.section`, `.grid`)
   - `components.css` — buttons, page hero, prose, cards & grids
@@ -73,6 +73,34 @@ Prefer modern CSS features:
 - `blog` — blog posts with `title`, `description`, `pubDate`, `tags`, `draft`
 - `scripts` — Affinity scripts with `title`, `description`, `pubDate`, `affinityVersion`, `tags`, `draft`
 - Both use `glob()` loader with `retainBody: true` for `.md` files.
+
+## Typography (Brand Guidelines)
+
+**Primary typeface:** Inter (variable, weights 300–700). No serif, script, or decorative fonts — ever.
+Fallback stack: `Inter → SF Pro Display → Helvetica Neue → Arial → sans-serif`.
+
+### Type scale (desktop / mobile)
+
+| Level | Weight | Desktop | Mobile | Line Height | Letter Spacing |
+|-------|--------|---------|--------|-------------|----------------|
+| Display / Hero | SemiBold (600) | 64–80 px | 40–48 px | 1.1 | -0.015em |
+| H1 | SemiBold (600) | 40–48 px | 32 px | 1.15 | -0.01em |
+| H2 | Medium (500) | 28–32 px | 24 px | 1.2 | -0.005em |
+| H3 | Medium (500) | 20–24 px | 18–20 px | 1.3 | 0 |
+| Body Large | Regular (400) | 18–20 px | 16–18 px | 1.5 | 0 |
+| Body | Regular (400) | 16 px | 15–16 px | 1.5–1.6 | 0 |
+| Body Small | Regular (400) | 14 px | 14 px | 1.5 | 0 |
+| Caption / Label | Medium (500) | 12–13 px | 12 px | 1.4 | +0.01em to +0.02em |
+| Button / CTA | Medium (500) | 14–16 px | 14–16 px | 1.2 | +0.01em |
+
+### Key rules
+
+- Use SemiBold or Medium for emphasis — never bold + italic combos.
+- Negative tracking on large display sizes (-0.01em to -0.02em) for a tighter, premium feel.
+- Minimum body text 15–16 px on screen. Never set body in all-caps or pure bold.
+- Dark backgrounds: pure white `#FFFFFF` or `#F4F4F4`. Light backgrounds: `#1C1C1C` or `#000000`.
+- Reserve `#FF6B00` for accents, links, or short emphasis — not large body text.
+- "Middledot" always in the primary typeface (Inter). Title Case only (capital M).
 
 ## Search
 

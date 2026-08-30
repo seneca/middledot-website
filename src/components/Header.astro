@@ -18,7 +18,7 @@ const navLinks = [
 <header class="site-header">
   <div class="header-inner container">
     <a href="/" class="brand" aria-label="middledot home">
-      <span class="brand-mark">&middot;</span> middledot
+      <img src="/middledot-logo.png" alt="middledot" class="brand-logo" width="150" height="40" />
     </a>
 
     <nav class="main-nav" aria-label="Main navigation">
@@ -107,17 +107,16 @@ const navLinks = [
   .brand {
     display: flex;
     align-items: center;
-    gap: 0.15em;
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--heading);
     text-decoration: none;
   }
 
-  .brand-mark {
-    font-size: 2em;
-    line-height: 0;
-    color: var(--brand);
+  .brand-logo {
+    height: 2rem;
+    width: auto;
+  }
+
+  [data-theme='dark'] .brand-logo {
+    filter: invert(1) hue-rotate(180deg);
   }
 
   .main-nav {

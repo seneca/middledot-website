@@ -10,7 +10,8 @@
     padding: 0.625rem 1.5rem;
     font-size: 0.9375rem;
     font-weight: 500;
-    line-height: 1;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
     border: 1px solid transparent;
     border-radius: var(--radius-full);
     cursor: pointer;
@@ -175,8 +176,8 @@
   .eyebrow {
     display: inline-block;
     font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
+    font-weight: 500;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--brand);
     margin-block-end: var(--space-sm);
