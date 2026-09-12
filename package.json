@@ -13,10 +13,10 @@
     "sync": "astro sync"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^14.2.5",
+    "@astrojs/cloudflare": "^14.3.1",
     "@astrojs/rss": "^4.0.19",
-    "@astrojs/sitemap": "^3.7.3",
-    "astro": "^7.2.9"
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^7.3.2"
   },
   "allowScripts": {
     "esbuild": true
