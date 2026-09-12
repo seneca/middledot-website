@@ -12,6 +12,12 @@ bun run preview       # preview the built site
 bun run sync          # regenerate content collection types
 ```
 
+## Git remote & auth
+
+- `origin` uses **SSH**: `git@github.com:seneca/middledot-website.git`.
+- **HTTPS pushes fail on this machine** — `could not read Username for 'https://github.com': Device not configured` (the macOS keychain has no stored GitHub credentials). Always push over the SSH remote.
+- SSH key `~/.ssh/id_ed25519` (added to `ssh-agent`) authenticates as `seneca`. If the agent is empty: `ssh-add ~/.ssh/id_ed25519`.
+
 ## Architecture
 
 - **Framework:** Astro 7 (static output) + `@astrojs/cloudflare` adapter.
