@@ -21,7 +21,7 @@ This website also hosts a **complete Affinity Scripting Tutorial**. I hope you'l
 The actual scripts themselves live on my Buy Me a Coffee page. That's where you can browse them, get them, or support the work if you find it useful.
 
 You can find everything here:
-→ [your Buy Me a Coffee link]
+→ [Buy Me a Coffee](https://www.buymeacoffee.com/middledot)
 
 ### A quick note about the scripts
 
