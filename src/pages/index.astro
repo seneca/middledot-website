@@ -18,6 +18,12 @@ const features = [
     href: 'https://ast.middledot.com',
     external: true,
   },
+  {
+    title: 'Affinity Scripting Tutorial (PDF)',
+    desc: 'Download the complete tutorial as a PDF (3.9 MB) for offline reading.',
+    href: '/downloads/affinity-sdk-tutorial.pdf',
+    download: true,
+  },
 ];
 ---
 
@@ -37,11 +43,12 @@ const features = [
   <section class="features section">
     <div class="container">
       <div class="grid grid-3">
-        {features.map(({ title, desc, href, external }) => (
+        {features.map(({ title, desc, href, external, download }) => (
           <a
             href={href}
             class="card feature-card"
             {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+            {...(download ? { download: true } : {})}
           >
             <h3 class="card-title">{title}</h3>
             <p class="card-desc">{desc}</p>
