@@ -7,7 +7,7 @@ images:
   - /images/blog/welcome/welcome.png
 ---
 
-Welcome to middledot — a small collection of Affinity scripts, tutorials, and notes from my work with the Affinity SDK.
+Welcome to **Middledot** — a site dedicated to a growing collection of Affinity scripts, tutorials, and notes from my work with the Affinity SDK.
 
 I write scripts for Affinity by Canva that help with the boring and repetitive parts of publishing work — things like updating long documents, working with paragraph and character styles, and filling gaps the software still has.
 
@@ -22,7 +22,7 @@ If you're new to Affinity scripting, start with the **[Affinity Scripting Tutori
 
 ### A quick note about the scripts
 
-The Affinity SDK is still evolving, so scripts may behave differently across versions and may fail to complete. My advice: download any script that looks useful, test it on a copy of your work, and if it saves you time, consider supporting the work on Buy Me a Coffee.
+The Affinity SDK is still evolving, so scripts may behave differently across versions and may fail to complete. My advice: download any script that looks useful, test it on a copy of your work, and if it saves you time, consider supporting the work on Buy Me a Coffee. Each script is delivered as a ZIP file and may include accompanying PDFs or documentation to help you get the most out of it.
 
 I'll keep this space focused on things that matter.
 

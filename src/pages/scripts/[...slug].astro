@@ -22,9 +22,6 @@ const { Content } = await render(script);
         <h1>{script.data.title}</h1>
         {script.data.description && <p>{script.data.description}</p>}
         <div class="card-meta">
-          {script.data.affinityVersion && (
-            <span class="card-tag">{script.data.affinityVersion}</span>
-          )}
           {script.data.tags.map((tag) => (
             <span class="card-tag">{tag}</span>
           ))}

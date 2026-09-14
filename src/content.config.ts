@@ -21,7 +21,6 @@ const scripts = defineCollection({
     title: z.string(),
     description: z.string().optional(),
     pubDate: z.coerce.date(),
-    affinityVersion: z.string().optional(),
     tags: z.array(z.string()).default([]),
     images: z.array(z.string()).default([]),
     downloads: z.array(z.string()).default([]),

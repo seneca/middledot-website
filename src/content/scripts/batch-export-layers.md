@@ -2,7 +2,6 @@
 title: "Batch Export Layers"
 description: "Export all layers in a document as individual PNG files with a single click."
 pubDate: 2026-08-28
-affinityVersion: "Designer 2 / Photo 2"
 tags: ["export", "productivity", "designer"]
 ---
 
