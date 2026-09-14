@@ -1,8 +1,9 @@
 ---
 title: "Getting Started with Affinity Scripts"
 description: "Learn how to run JavaScript scripts in Affinity Designer, Photo, and Publisher."
-pubDate: 2026-08-28
+pubDate: 2026-09-21
 tags: ["tutorial", "getting-started"]
+images: []
 ---
 
 Affinity apps ship with a built-in JavaScript scripting engine. This guide covers the basics.

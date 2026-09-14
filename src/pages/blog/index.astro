@@ -23,27 +23,32 @@ const posts = (await getCollection('blog'))
       ) : (
         <div class="grid grid-2 blog-grid">
           {posts.map((post) => (
-            <a href={`/blog/${post.id}/`} class="card">
-              <time class="card-meta" datetime={post.data.pubDate.toISOString()}>
-                {post.data.pubDate.toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric',
-                })}
-              </time>
-              <h2 class="card-title">{post.data.title}</h2>
-              {post.data.description && (
-                <p class="card-desc">{post.data.description}</p>
-              )}
-              {post.data.tags.length > 0 && (
-                <div class="card-meta">
-                  {post.data.tags.map((tag) => (
-                    <span class="card-tag">{tag}</span>
-                  ))}
+              <a href={`/blog/${post.id}/`} class="card">
+                {post.data.images && post.data.images.length > 0 && (
+                  <img src={post.data.images[0]} alt="" class="card-thumb" />
+                )}
+                <div class="card-body">
+                  <time class="card-meta" datetime={post.data.pubDate.toISOString()}>
+                    {post.data.pubDate.toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    })}
+                  </time>
+                  <h2 class="card-title">{post.data.title}</h2>
+                  {post.data.description && (
+                    <p class="card-desc">{post.data.description}</p>
+                  )}
+                  {post.data.tags.length > 0 && (
+                    <div class="card-meta">
+                      {post.data.tags.map((tag) => (
+                        <span class="card-tag">{tag}</span>
+                      ))}
+                    </div>
+                  )}
                 </div>
-              )}
-            </a>
-          ))}
+              </a>
+            ))}
         </div>
       )}
     </div>

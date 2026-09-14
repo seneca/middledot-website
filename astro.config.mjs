@@ -8,4 +8,5 @@ export default defineConfig({
   integrations: [sitemap()],
   site: 'https://www.middledot.com',
   trailingSlash: 'always',
+  optimizeDeps: { exclude: ['astro/content', 'astro/app'] },
 });

@@ -1,11 +1,13 @@
 ---
 title: "Welcome to middledot"
-description: "This site is where I share thoughts, notes, and updates around the Affinity scripts I create."
-pubDate: 2026-08-29
+description: "Welcome to middledot — a small collection of Affinity scripts, tutorials, and notes from my work with the Affinity SDK."
+pubDate: 2026-09-20
 tags: ["announcement"]
+images:
+  - /images/blog/welcome/front-icon.png
 ---
 
-This site is where I share thoughts, notes, and updates around the Affinity scripts I create.
+Welcome to middledot — a small collection of Affinity scripts, tutorials, and notes from my work with the Affinity SDK.
 
 I write scripts for Affinity by Canva that help with the boring and repetitive parts of publishing work — things like updating long documents, working with paragraph and character styles, and filling gaps the software still has.
 
@@ -16,21 +18,12 @@ You'll find occasional posts here about:
 - How certain scripts came about
 - Things I've learned while building tools for real publishing workflows
 
-This website also hosts a **complete Affinity Scripting Tutorial**. I hope you'll find it useful while you learn and explore the Affinity by Canva SDK.
-
-The actual scripts themselves live on my Buy Me a Coffee page. That's where you can browse them, get them, or support the work if you find it useful.
-
-You can find everything here:
-→ [Buy Me a Coffee](https://www.buymeacoffee.com/middledot)
+If you're new to Affinity scripting, start with the **[Affinity Scripting Tutorial](https://ast.middledot.com)** — a structured guide to get you up and running.
 
 ### A quick note about the scripts
 
-Please remember that the Affinity SDK is still in development and evolving. Because of this, some scripts may not work exactly as expected on your setup.
+The Affinity SDK is still evolving, so scripts may behave differently across versions and may fail to complete. My advice: download any script that looks useful, test it on a copy of your work, and if it saves you time, consider supporting the work on Buy Me a Coffee.
 
-My advice is simple:
-Get any script you want from the shop for **£0**, try it out, and check whether it does what it claims.
-If it works well for you and saves you time, then please consider supporting me on Buy Me a Coffee.
+I'll keep this space focused on things that matter.
 
-This site will stay relatively quiet and focused. I won't be posting daily updates — just the things that feel worth sharing.
-
-Thanks for stopping by.
+Thanks for being here.

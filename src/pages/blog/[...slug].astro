@@ -38,10 +38,23 @@ const { Content } = await render(post);
       </div>
     </section>
 
-    <section class="section">
+    <section class="post-cover section">
       <div class="container">
-        <div class="prose">
-          <Content />
+        <div class="post-cover-grid">
+          <div class="post-cover-images">
+            {post.data.images && post.data.images.length > 0 ? (
+              post.data.images.map((img) => (
+                <img src={img} alt="" class="post-cover-img" />
+              ))
+            ) : (
+              <div class="post-cover-placeholder" />
+            )}
+          </div>
+          <div class="post-cover-body">
+            <div class="prose">
+              <Content />
+            </div>
+          </div>
         </div>
       </div>
     </section>
