@@ -22,22 +22,27 @@ const scripts = (await getCollection('scripts'))
         <p class="text-muted">No scripts yet. Check back soon!</p>
       ) : (
         <div class="grid grid-2 scripts-grid">
-          {scripts.map((script) => (
-            <a href={`/scripts/${script.id}/`} class="card">
-              <h2 class="card-title">{script.data.title}</h2>
-              {script.data.description && (
-                <p class="card-desc">{script.data.description}</p>
-              )}
-              <div class="card-meta">
-                {script.data.affinityVersion && (
-                  <span class="card-tag">{script.data.affinityVersion}</span>
+           {scripts.map((script) => (
+              <a href={`/scripts/${script.id}/`} class="card">
+                {script.data.images && script.data.images.length > 0 && (
+                  <img src={script.data.images[0]} alt="" class="card-thumb" />
                 )}
-                {script.data.tags.map((tag) => (
-                  <span class="card-tag">{tag}</span>
-                ))}
-              </div>
-            </a>
-          ))}
+                <div class="card-body">
+                  <h2 class="card-title">{script.data.title}</h2>
+                  {script.data.description && (
+                    <p class="card-desc">{script.data.description}</p>
+                  )}
+                  <div class="card-meta">
+                    {script.data.affinityVersion && (
+                      <span class="card-tag">{script.data.affinityVersion}</span>
+                    )}
+                    {script.data.tags.map((tag) => (
+                      <span class="card-tag">{tag}</span>
+                    ))}
+                  </div>
+                </div>
+              </a>
+            ))}
         </div>
       )}
     </div>

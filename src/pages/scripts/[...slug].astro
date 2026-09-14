@@ -32,10 +32,38 @@ const { Content } = await render(script);
       </div>
     </section>
 
-    <section class="section">
+    {script.data.downloads && script.data.downloads.length > 0 && (
+      <section class="download-bar">
+        <div class="container">
+          <div class="download-bar-inner">
+            <span class="download-bar-label">Download Script</span>
+            <div class="download-links">
+              {script.data.downloads.map((dl) => (
+                <a href={dl} class="btn btn-primary" download>Download</a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    )}
+
+    <section class="post-cover section">
       <div class="container">
-        <div class="prose">
-          <Content />
+        <div class="post-cover-grid">
+          <div class="post-cover-images">
+            {script.data.images && script.data.images.length > 0 ? (
+              script.data.images.map((img) => (
+                <img src={img} alt="" class="post-cover-img" />
+              ))
+            ) : (
+              <div class="post-cover-placeholder" />
+            )}
+          </div>
+          <div class="post-cover-body">
+            <div class="prose">
+              <Content />
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -4,7 +4,7 @@ description: "Welcome to middledot — a small collection of Affinity scripts, t
 pubDate: 2026-09-20
 tags: ["announcement"]
 images:
-  - /images/blog/welcome/front-icon.png
+  - /images/blog/welcome/welcome.png
 ---
 
 Welcome to middledot — a small collection of Affinity scripts, tutorials, and notes from my work with the Affinity SDK.

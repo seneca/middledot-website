@@ -245,6 +245,33 @@
     margin-block: var(--space-xl);
   }
 
+  /* Download bar — script article top */
+  .download-bar {
+    background: var(--surface);
+    padding-block: var(--space-md);
+    border-block-end: 1px solid var(--border);
+  }
+
+  .download-bar-inner {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  .download-bar-label {
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: var(--text);
+    white-space: nowrap;
+  }
+
+  .download-links {
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+  }
+
   @media (max-width: 768px) {
     .post-cover-grid {
       flex-direction: column;
