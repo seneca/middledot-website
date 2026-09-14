@@ -6,6 +6,6 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   adapter: cloudflare(),
   integrations: [sitemap()],
-  site: 'https://middledot.dev',
+  site: 'https://www.middledot.com',
   trailingSlash: 'always',
 });
