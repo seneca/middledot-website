@@ -6,19 +6,18 @@ tags: ["tutorial", "getting-started"]
 images: []
 ---
 
-Affinity apps ship with a built-in JavaScript scripting engine. This guide covers the basics.
+Affinity by Canva ships with a built-in JavaScript scripting engine. This guide covers the basics.
 
 ## Prerequisites
 
-- Affinity by Canva (version 2 or later)
-- A text editor for writing scripts
+Please consult the Affinity official documentation on how to enable [running scripts](https://www.affinity.studio/help/running-scripts) in Affinity.
 
 ## Your First Script
 
 Open Affinity and go to **File > Scripts > Run Script**. Paste this:
 
 ```javascript
-alert('Hello from middledot!');
+alert('Hello Affinity!');
 ```
 
 Click **Run** and you should see a dialog box.
