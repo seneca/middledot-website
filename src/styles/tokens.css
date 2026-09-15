@@ -2,7 +2,7 @@
 @layer base {
   :root {
     /* Brand */
-    --brand: #6366f1;
+    --brand: #FF6B00;
     --brand-hover: color-mix(in oklch, var(--brand) 80%, black);
 
     /* Semantic tokens */
@@ -65,7 +65,7 @@
   }
 
   [data-theme='dark'] {
-    --brand: #818cf8;
+    --brand: #FF6B00;
     --brand-hover: color-mix(in oklch, var(--brand) 80%, white);
 
     --bg: #0f172a;
