@@ -2,7 +2,7 @@
 title: "Sudoku Generator"
 description: "Generates valid Sudoku puzzles with unique solutions."
 pubDate: 2026-09-15
-tags: ["sudoku", "generator", "designer"]
+tags: ["sudoku", "generator"]
 images:
   - /images/scripts/sudoku/sudoku-dialog.png
   - /images/scripts/sudoku/sudoku.png

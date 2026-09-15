@@ -2,7 +2,7 @@
 title: "Batch Export Layers"
 description: "Export all layers in a document as individual PNG files with a single click."
 pubDate: 2026-08-28
-tags: ["export", "productivity", "designer"]
+tags: ["export", "productivity"]
 ---
 
 A simple script that exports every layer in the active document as a separate PNG file, named after the layer.
