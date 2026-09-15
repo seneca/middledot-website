@@ -15,7 +15,7 @@ const { Content } = await render(post);
 ---
 
 <BaseLayout title={`${post.data.title} — middledot`} description={post.data.description}>
-  <article>
+  <article data-images={post.data.images?.join(',')}>
     <section class="page-hero post-hero">
       <div class="container">
         <a href="/blog/" class="back-link">&larr; Back to blog</a>

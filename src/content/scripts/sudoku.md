@@ -12,9 +12,6 @@ downloads:
 
 Generates valid Sudoku puzzles with unique solutions.
 
-![Sudoku dialog](/images/scripts/sudoku/sudoku-dialog.png)
-![Sudoku](/images/scripts/sudoku/sudoku.png)
-
 ## Installation
 
 1. Download the zip file and unzip it.

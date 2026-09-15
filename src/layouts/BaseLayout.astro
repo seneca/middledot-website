@@ -38,6 +38,27 @@ const { title, description = 'Affinity scripts, tools, and resources.', showSear
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <script is:inline>
+      (function () {
+        var article = document.querySelector('article[data-images]');
+        if (!article) return;
+        var images = article.getAttribute('data-images').split(',').map(function (s) { return s.trim(); }).filter(Boolean);
+        if (images.length === 0) return;
+        var prose = article.querySelector('.prose');
+        if (!prose) return;
+        var imgs = prose.querySelectorAll('img');
+        var removed = 0;
+        imgs.forEach(function (img) {
+          if (removed >= 2) return;
+          if (img.classList.contains('full-width')) return;
+          var src = img.getAttribute('src') || '';
+          if (images.some(function (coverSrc) { return src === coverSrc || src.endsWith(coverSrc) || coverSrc.endsWith(src); })) {
+            img.remove();
+            removed++;
+          }
+        });
+      })();
+    </script>
   </head>
   <body>
     <a href="#main-content" class="skip-link">Skip to content</a>
