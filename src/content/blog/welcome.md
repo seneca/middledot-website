@@ -18,7 +18,7 @@ You'll find occasional posts here about:
 - How certain scripts came about
 - Things I've learned while building tools for real publishing workflows
 
-If you're new to Affinity scripting, start with the **[Affinity Scripting Tutorial](https://ast.middledot.com)** — a structured guide to get you up and running.
+If you're new to Affinity scripting, start with the **[Affinity Scripting Tutorial](https://ast.middledot.com)** — a structured guide to get you up and running. If you have ideas for scripts that would help your workflow, please let me know — user feedback is the best way to discover what's needed, so don't hesitate to share. Also, if you find something missing or useful to add to the scripts here, please let me know too.
 
 ### A quick note about the scripts
 

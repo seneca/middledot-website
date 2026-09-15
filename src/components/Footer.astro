@@ -20,8 +20,9 @@ const currentYear = new Date().getFullYear();
   </div>
 
   <div class="footer-bottom container">
-    <p>&copy; {currentYear} Middledot. All rights reserved.</p>
-  </div>
+     <p class="footer-copyright">&copy; {currentYear} Middledot. All rights reserved.</p>
+     <p class="footer-disclaimer">This tutorial is not affiliated with, endorsed by, or sponsored by Affinity by Canva.</p>
+   </div>
 </footer>
 
 <style is:global>
@@ -96,10 +97,19 @@ const currentYear = new Date().getFullYear();
   }
 
   .footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-sm);
     padding-block-start: var(--space-md);
     font-size: 0.8125rem;
     color: var(--slate-400);
-    text-align: center;
+  }
+
+  .footer-disclaimer {
+    font-size: 0.8rem;
+    opacity: 0.8;
   }
 
   @media (max-width: 560px) {
