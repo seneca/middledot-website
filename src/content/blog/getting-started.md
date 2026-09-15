@@ -1,6 +1,6 @@
 ---
 title: "Getting Started with Affinity Scripts"
-description: "Learn how to run JavaScript scripts in Affinity Designer, Photo, and Publisher."
+description: "Learn how to run JavaScript scripts in Affinity by Canva."
 pubDate: 2026-09-21
 tags: ["tutorial", "getting-started"]
 images: []
@@ -10,7 +10,7 @@ Affinity apps ship with a built-in JavaScript scripting engine. This guide cover
 
 ## Prerequisites
 
-- Affinity Designer, Photo, or Publisher (version 2 or later)
+- Affinity by Canva (version 2 or later)
 - A text editor for writing scripts
 
 ## Your First Script
