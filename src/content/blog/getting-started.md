@@ -14,13 +14,13 @@ Please consult the Affinity official documentation on how to enable [running scr
 
 ## Your First Script
 
-Open Affinity and go to **File > Scripts > Run Script**. Paste this:
+Open Affinity and go to **Window > Scripting > Script Editor**. Paste this:
 
 ```javascript
 alert('Hello Affinity!');
 ```
 
-Click **Run** and you should see a dialog box.
+Click **Run** and you should see an Alert saying **Hello Affinity!**.
 
 ## What's Next
 
