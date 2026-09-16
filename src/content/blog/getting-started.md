@@ -3,14 +3,15 @@ title: "Getting Started with Affinity Scripts"
 description: "Learn how to run JavaScript scripts in Affinity by Canva."
 pubDate: 2026-09-21
 tags: ["tutorial", "getting-started"]
-images: []
+images:
+  - /images/blog/getting-started/alert.png
 ---
 
-Affinity by Canva ships with a built-in JavaScript scripting engine. This guide covers the basics.
+Affinity by Canva ships with a built-in JavaScript scripting engine. this short post will get you started.
 
 ## Prerequisites
 
-Please consult the Affinity official documentation on how to enable [running scripts](https://www.affinity.studio/help/running-scripts) in Affinity.
+Please consult the Affinity official documentation on how to <a href="https://www.affinity.studio/help/running-scripts" style="color: var(--brand)">run scripts</a> in Affinity.
 
 ## Your First Script
 
