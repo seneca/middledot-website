@@ -1,7 +1,7 @@
 ---
 title: "Welcome to Middledot"
 description: "Welcome to Middledot — a site dedicated to a growing collection of Affinity scripts, tutorials, and notes from my work with the Affinity SDK."
-pubDate: 2026-09-20
+pubDate: 2026-09-16
 tags: ["announcement"]
 images:
   - /images/blog/welcome/welcome.png
