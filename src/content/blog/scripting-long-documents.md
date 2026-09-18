@@ -1,7 +1,7 @@
 ---
 title: "Scripting Long Documents"
 description: "What the 3.3 release unlocks for long documents — and the workarounds long-document scripts still need."
-pubDate: 2026-09-18
+pubDate: 2026-09-20
 tags: ["tutorial", "long-documents", "master-pages", "text-styles"]
 images:
   - /images/blog/scripting-long-documents/long-documents.png

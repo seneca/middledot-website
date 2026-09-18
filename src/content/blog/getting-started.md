@@ -1,7 +1,7 @@
 ---
 title: "Getting Started with Affinity Scripts"
 description: "Learn how to run JavaScript scripts in Affinity by Canva."
-pubDate: 2026-09-21
+pubDate: 2026-09-18
 tags: ["tutorial", "getting-started"]
 images:
   - /images/blog/getting-started/alert.png
