@@ -168,3 +168,7 @@ I deliberately kept them as they are. The SDK is going to add a lot of this in t
 ## What this means for long-document authors
 
 Long-document scripting in 3.3 is genuinely useful, but you should expect scaffolding: walk the node tree for masters, derive the style list from stories in use, group by text flow, and apply — never create — styles. Once those workarounds are in place, a script like [`para-pairs`](/scripts/para-pairs/) can process a whole book, master pages included, in one undoable action.
+
+## A final caveat
+
+These are my own discoveries from working with the 3.3 beta scripting surface, and I may not have it all understood. If you find a better way — or if I've got something wrong — I'd genuinely like to hear about it.
