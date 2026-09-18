@@ -7,7 +7,7 @@ images:
   - /images/blog/getting-started/alert.png
 ---
 
-Affinity by Canva ships with a built-in JavaScript scripting engine. this short post will get you started.
+Affinity by Canva ships with a built-in JavaScript scripting engine. This short post will get you started.
 
 ## Prerequisites
 
