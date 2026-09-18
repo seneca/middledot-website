@@ -126,7 +126,34 @@ Scanning groups frames by shared flow, so each story is processed once even when
 
 ## Two more workarounds worth knowing
 
-Reading the live text selection can disturb it, so the script snapshots scope with a temporary glyph-style marker (and a U+E000 caret probe), then undoes the probe — guarded by the history position so a silently failed probe can never pop one of the user's own history entries. And `formatText` requires the target spread to be current (otherwise `COMMAND_FAILED`), so hits are grouped per spread and executed through a `CompoundCommandBuilder`: one undo step for the whole run, ending back on the spread where the user started.
+### Reading the selection without destroying it
+
+Simply asking the SDK for the live text selection can disturb that very selection — especially in master-derived frames, where `doc.selection` may read empty even though the user clearly has text selected. So the script never trusts a direct read. Instead it takes a snapshot in two stages.
+
+First, it applies a temporary glyph style — a marker string stamped with a unique name — to whatever the live selection is, via `doc.formatText` with no selection argument (which targets the live UI selection). It then scans every story for that marker to find which flow actually holds the selection. Second, it distinguishes a real range selection from a collapsed caret with a probe: it inserts a single private-use character (U+E000, guaranteed never to collide with real text) and measures the story-length delta. A `+1` proves a caret; anything else proves a range.
+
+Both the marker and the probe mutate the document, so both must be undone immediately. But a blind `doc.undo()` is dangerous: if the probe silently failed and pushed no history entry, the undo would pop one of the user's own history entries instead. So the script records the history position before each probe and only undoes when the position actually advanced:
+
+```javascript
+function shouldUndoProbe(historyBefore, mutationFound, doc) {
+  if (historyBefore === null) return mutationFound;
+  const historyAfter = getHistoryPosition(doc);
+  if (historyAfter === null) return mutationFound;
+  return historyAfter > historyBefore;
+}
+```
+
+Undo only with history evidence; trust the scan result when history is unreadable.
+
+### Formatting requires the right spread to be current
+
+`formatText` fails with `COMMAND_FAILED` unless the spread containing the target frame is the current spread. A whole-book run touches many spreads, so the script groups all hits per spread, switches to each spread exactly once (starting spread processed last, so the run ends where the user began), and executes everything through a single `CompoundCommandBuilder`. The result: one undo step for the entire run, and the viewport never moves as a side effect.
+
+## A note on the size of these scripts
+
+This article mentions the `para-pairs` script, and the same applies to `para-joiner`: both are quite long. Much of that length is shared scaffolding — the master-spread walk, the flow grouping, the marker/probe snapshot — and it would be possible to make the scripts shorter by extracting the common parts into a library and importing it where needed.
+
+I deliberately kept them as they are. The SDK is going to add a lot of this in the future — style inventories, proper story identity, master-aware selection reads — and once more is exposed by the SDK, much of this scaffolding becomes unnecessary. I hope to revisit both scripts then and make them considerably shorter.
 
 ## What this means for long-document authors
 
