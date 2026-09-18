@@ -12,10 +12,6 @@ downloads:
 
 Joins selected paragraphs by replacing breaks with a single space.
 
-![Before joining — paragraphs selected across the break](/images/scripts/para-joiner/para-joiner-01.png)
-
-![After joining — one continuous paragraph](/images/scripts/para-joiner/para-joiner-02.png)
-
 ## Installation
 
 1. Download the zip file and unzip it.
