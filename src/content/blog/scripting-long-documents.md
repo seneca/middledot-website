@@ -11,7 +11,7 @@ The 3.3 release opens up a lot of possibilities for long-document work. Finding 
 
 There is one big caveat: the 3.3 scripting surface is still in beta; some things aren't scriptable yet. The release notes state that scripting is still in beta and not all has been exposed yet. Working with text frames that originate on master pages is one of the gaps. Two others: a script cannot ask the document which paragraph and character styles it carries, and it cannot create new styles either.
 
-This post walks through the workarounds using `para-pairs` (v1.2.5) as the worked example — find a paragraph with style A followed immediately by a paragraph with style B, and re-style the pair.
+This post walks through the workarounds using [`para-pairs`](/scripts/para-pairs/) (v1.2.5) as the worked example — find a paragraph with style A followed immediately by a paragraph with style B, and re-style the pair.
 
 ## Master-page text frames are invisible to the obvious APIs
 
@@ -130,4 +130,4 @@ Reading the live text selection can disturb it, so the script snapshots scope wi
 
 ## What this means for long-document authors
 
-Long-document scripting in 3.3 is genuinely useful, but you should expect scaffolding: walk the node tree for masters, derive the style list from stories in use, group by text flow, and apply — never create — styles. Once those workarounds are in place, a script like `para-pairs` can process a whole book, master pages included, in one undoable action.
+Long-document scripting in 3.3 is genuinely useful, but you should expect scaffolding: walk the node tree for masters, derive the style list from stories in use, group by text flow, and apply — never create — styles. Once those workarounds are in place, a script like [`para-pairs`](/scripts/para-pairs/) can process a whole book, master pages included, in one undoable action.
