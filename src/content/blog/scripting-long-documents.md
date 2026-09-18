@@ -86,9 +86,19 @@ That is why the dialog offers "Any paragraph style" for matching and "Keep curre
 
 ## Stories have no identity primitive
 
-Fresh JS wrappers defeat `===`, and `isSameNode` exists on nodes but never on stories. Comparing two `story` objects directly tells you nothing.
+Here is a trap that is easy to fall into. You grab a story from a frame, grab it again, and compare:
 
-The workaround is to compare flows, not stories. Frames that share a text flow share a story, and frames are nodes, so node identity works:
+```javascript
+const s1 = node.storyInterface.story;
+const s2 = node.storyInterface.story;
+s1 === s2; // false — even though it's the same story
+```
+
+Why `false`? Every time your script touches an SDK object, the Affinity JS bridge builds a fresh JavaScript wrapper around the same underlying native object. `===` compares the wrappers, not what's inside them — so two wrappers around the identical native story are never equal.
+
+The SDK does offer `isSameNode()`, which compares the native side properly — but it exists on nodes only, never on stories. And there is no story ID, handle, or name you could compare instead. So there is simply no direct way to ask "are these two stories the same story?".
+
+The workaround is to stop comparing stories and compare frames instead. Frames are nodes, so `isSameNode` works on them. Frames that share a text flow share a story — so if frame A appears in frame B's `textFrameInterface.textFlowNodes` list (or vice versa), both frames belong to the same story:
 
 ```javascript
 function getFlowFrames(node) {
