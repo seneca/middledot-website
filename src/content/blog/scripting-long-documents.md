@@ -171,4 +171,4 @@ Long-document scripting in 3.3 is genuinely useful, but you should expect scaffo
 
 ## A final caveat
 
-These are my own discoveries from working with the 3.3 beta scripting surface, and I may not have it all understood. If you find a better way — or if I've got something wrong — I'd genuinely like to hear about it.
+This is based on my own work with the 3.3 scripting surface, so treat it as a work in progress rather than the final word. If you've found a better approach or spotted an error, I'd be glad to hear from you.
