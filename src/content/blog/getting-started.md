@@ -25,6 +25,7 @@ Click **Run** and you should see an Alert saying **Hello Affinity!**.
 
 ## What's Next
 
-- Learn about the [document model](/blog/document-model/)
+- Check out the Affinity Scripting <a href="https://ast.middledot.com/docs/" target="_blank" rel="noopener noreferrer">Tutorial</a>
+- Learn about the <a href="https://ast.middledot.com/docs/foundations/app-and-document" target="_blank" rel="noopener noreferrer">document model</a>
 - Explore the [layer API](/blog/layer-api/)
 - Check out the [scripts collection](/scripts/) for ready-to-use examples
