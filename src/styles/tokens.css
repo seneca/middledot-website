@@ -13,6 +13,10 @@
     --text-muted: var(--slate-400);
     --border: color-mix(in oklch, var(--text) 12%, transparent);
 
+    /* Publishing grid */
+    --grid-line: color-mix(in oklch, var(--text) 6%, transparent);
+    --grid-size: 24px;
+
     /* Accent */
     --accent: #FF6B00;
     --accent-hover: color-mix(in oklch, var(--accent) 85%, black);

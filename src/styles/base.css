@@ -60,6 +60,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    background-color: var(--bg);
   }
 
   body {
@@ -67,7 +68,6 @@
     font-size: 1rem;
     line-height: 1.55;
     color: var(--text);
-    background-color: var(--bg);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
@@ -77,6 +77,19 @@
     height: 100vh;
     height: 100dvh;
     overflow: hidden;
+  }
+
+  /* Publishing grid — revert: delete this rule + the two grid tokens above */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+      linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+    background-size: var(--grid-size) var(--grid-size);
   }
 
   main {
