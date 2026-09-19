@@ -12,6 +12,9 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+const bodyText = (post.body ?? '').replace(/<[^>]*>/g, '');
+const words = bodyText.split(/\s+/).filter(Boolean).length;
+const readTime = Math.max(1, Math.ceil(words / 200));
 ---
 
 <BaseLayout title={`${post.data.title} — middledot`} description={post.data.description}>
@@ -26,6 +29,7 @@ const { Content } = await render(post);
             day: 'numeric',
           })}
         </time>
+        <span class="post-read-time">{readTime} min read</span>
         <h1>{post.data.title}</h1>
         {post.data.description && <p>{post.data.description}</p>}
         {post.data.tags.length > 0 && (
@@ -83,5 +87,11 @@ const { Content } = await render(post);
 
   .back-link:hover {
     text-decoration: underline;
+  }
+
+  .post-read-time {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+    margin-inline-start: var(--space-sm);
   }
 </style>
