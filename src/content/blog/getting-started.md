@@ -25,7 +25,7 @@ Click **Run** and you should see an Alert saying **Hello Affinity!**.
 
 ## What's Next
 
-- Check out the Affinity Scripting <a href="https://ast.middledot.com/docs/" target="_blank" rel="noopener noreferrer">Tutorial</a>
+- Check out the Affinity Scripting <a href="https://ast.middledot.com/" target="_blank" rel="noopener noreferrer">Tutorial</a>
 - Learn about the <a href="https://ast.middledot.com/docs/foundations/app-and-document" target="_blank" rel="noopener noreferrer">document model</a>
 - Explore the <a href="https://ast.middledot.com/docs/foundations/node-model" target="_blank" rel="noopener noreferrer">layer API</a>
 - Check out the <a href="https://ast.middledot.com/docs/official-affinity-sdk-examples/intro" target="_blank" rel="noopener noreferrer">scripts collection</a> for ready-to-use examples
