@@ -82,6 +82,8 @@ you to another page.
 
 ## Changelog
 
+1.2.6 - Standard error wrapper around main() with a Console trace and alert; tryGet/tryDo helpers replace silent empty catches; cache the frame list and text flows per run.
+
 1.2.5 - Require /commands at top level (proven selection-safe); drop the getCommandModules lazy getter.
 
 1.2.4 - Code-size reduction with no behavior change: unified probe helper, single snapshot path per selection kind, merged spread grouping, data-driven format sides and dialog combos.
