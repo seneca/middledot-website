@@ -33,7 +33,7 @@ Type LaTeX and place publication-quality mathematical formulas as native Affinit
 
 You type LaTeX—or pick an example—and the script renders it with MathJax 3.2.2, placing the result on your spread as native Affinity vector curves. By default, the formula becomes one merged curve layer; untick the option for separate editable glyph curves in a named group.
 
-Select any formula created by this script and run it again to re-edit in place: the dialog reopens with your source and settings pre-filled, OK re-renders it in the exact spot, and Cancel keeps the original untouched.
+Select any part of a formula created by this script—even a single curve inside a group—and run it again to re-edit in place: the dialog reopens with your source and settings pre-filled, OK re-renders it in the exact spot, and Cancel keeps the original untouched.
 
 ## How it works
 
@@ -43,6 +43,8 @@ The script parses MathJax SVG output in memory and converts it directly into Aff
 - Re-edited formulas replace the selected formula in place.
 - Display mode controls the internal equation layout: unticked formulas use compact inline styling, while ticked formulas use larger standalone styling with full-size symbols.
 - The choice between a merged single object and an editable glyph group is stored with each formula and offered again when re-editing.
+- The dialog shows a live outline count for valid source—or a friendly error for invalid source—as you type.
+- The optional live canvas preview paints a transient formula while the dialog is open. Invalid or empty source clears the preview; Cancel discards it and leaves the original untouched.
 - Render errors return you to the same dialog with values preserved and an actionable message.
 
 ## Typesetting coverage
@@ -55,6 +57,8 @@ Characters without vector outlines in MathJax’s fonts—such as upright Greek,
 
 - Start from a clean slate: click empty canvas—or press Esc—so nothing is selected before running a fresh formula.
 - To re-edit, select only the intended formula first. A stray selection on an old formula turns the run into a replacement rather than a fresh insert.
+- A double image while re-editing is expected: the dialog paints a live preview over the untouched original. OK replaces the original with the preview; Cancel keeps the original and discards the preview.
+- Colour has no live preview because colour pickers emit no dialog events; recolouring applies when you press OK.
 - Cancel is always safe and leaves the original formula untouched.
 - If output looks wrong in one mode, try the other: merged single-object and editable-group rendering use different geometry paths.
 - Expressions with strokes crossing glyphs are intentionally placed as an editable group.
@@ -70,12 +74,19 @@ Characters without vector outlines in MathJax’s fonts—such as upright Greek,
 
 ## Known limitations
 
+- The re-edit preview ghost is cosmetic: the SDK offers no way to hide the original node while the dialog is open, and it never affects output.
 - Formulas made by earlier script versions remain re-editable, but ungrouped or broken-apart curves lose their container tag and are treated as fresh inserts.
 - Letter holes and unusual outline crossings depend on the MathJax version’s outlines; inspect large-zoom output after a renderer upgrade.
 - Display mode changes internal layout and size only; centering and surrounding spacing remain your responsibility.
 - Custom font sizes beyond the dialog list require setting `CONFIG.DEFAULT_FONT_SIZE`.
 
 ## Changelog
+
+0.9.18 - Re-edit wording now covers selecting any part of a formula; live preview is on by default after in-app verification.
+
+0.9.17 - Added live canvas preview behind `CONFIG.LIVE_PREVIEW`: transient re-render on every change, cleared on invalid input, OK, or Cancel; colour remains OK-time-only.
+
+0.9.16 - Added live dialog status: outline count or friendly error updates as you type, without alerts, inserts, or undo; rendering remains OK-gated.
 
 0.9.15 - Refined crossing detection so tangent touches remain merged while true voids still use grouped output; added troubleshooting and clean-slate guidance.
 
