@@ -2,6 +2,7 @@
 title: "Para-Pairs"
 description: "Finds a paragraph with style A followed immediately by a paragraph with style B, and re-styles the pair."
 pubDate: 2026-09-18
+updatedDate: 2026-10-14
 tags: ["para-pairs", "typography"]
 images:
   - /images/scripts/para-pairs/para-pairs-dialog.png
@@ -81,6 +82,8 @@ you to another page.
 - The script needs an open document containing text frames.
 
 ## Changelog
+
+1.2.7 - Quality pass with no behavior change: CONFIG object and section banners added for navigability, all string-building converted to template literals, and the dialog-loop body extracted out of main() into a named helper.
 
 1.2.6 - Standard error wrapper around main() with a Console trace and alert; tryGet/tryDo helpers replace silent empty catches; cache the frame list and text flows per run.
 
