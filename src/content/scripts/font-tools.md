@@ -2,6 +2,7 @@
 title: "Font Tools"
 description: "Paired setup and export utilities for building a small display, symbol, or icon font in Affinity Designer."
 pubDate: 2026-10-07
+updatedDate: 2026-10-14
 tags: ["fonts", "typography"]
 images:
   - /images/scripts/font-tools/create-font-dialog.png
@@ -91,6 +92,8 @@ Cancelling the dialog creates nothing. Choosing a preset with no characters logs
 
 ### Setup changelog
 
+1.1.0 - Failures now show an alert dialog instead of only logging to the console; settings moved into a `CONFIG` object
+
 1.0.1 - Removed no-op `isLandscape` assignment; clear end-of-run selection so artboards come up uniformly collapsed
 
 1.0.0 - Initial version
@@ -139,6 +142,8 @@ Cancelling the dialog exports nothing.
 - Each export produces a single Regular weight with no kerning, hinting, or OpenType layout features.
 
 ### Export changelog
+
+1.2.0 - OS/2 `sCapHeight`/`sxHeight` now come from the document's actual cap-height/x-height marker lines (falling back to defaults only if a document has none), instead of always being hardcoded; standard glyph names (`A`-`Z`, `a`-`z`, digits, punctuation) now use their predefined CFF SIDs instead of bloating the custom string table; an unexpected error on one artboard is now skipped instead of aborting the whole export; settings moved into a `CONFIG` object
 
 1.1.0 - "Save to folder" dialog field prefilled from `OUTPUT_FOLDER`; "Browse…" support; clearer write-failure messages; `File.create` migration; Windows path support
 
