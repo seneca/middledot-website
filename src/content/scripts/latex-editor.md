@@ -2,6 +2,7 @@
 title: "LaTeX Editor"
 description: "Type LaTeX and place publication-quality mathematical formulas as native Affinity vector curves."
 pubDate: 2026-10-08
+updatedDate: 2026-10-14
 tags: ["latex", "mathematics", "typography"]
 images:
   - /images/scripts/latex-editor/latex-dialog.png
@@ -81,6 +82,10 @@ Characters without vector outlines in MathJax’s fonts—such as upright Greek,
 - Custom font sizes beyond the dialog list require setting `CONFIG.DEFAULT_FONT_SIZE`.
 
 ## Changelog
+
+0.9.20 - Code-review cleanup round two (no render/insert logic change, live-tested): `DialogResult` comparison simplified to the confirmed `==` idiom used everywhere else in this toolkit, dropping needless manual `.value` unwrapping; fatal setup/render failures now also go through `console.error`, not just the custom log wrapper; pasted LaTeX gets a well-formedness guard before any regex work; the ~100 duplicated lines of tag/compound-command plumbing shared by the single-object and group insert paths are now one shared pair of helper functions; `createCompoundCommand` swapped for the `CompoundCommandBuilder` idiom used by every other multi-command script in the repo; duplicated/leftover comment blocks removed.
+
+0.9.19 - Two bug fixes from a code review: the fatal-error cleanup path referenced a variable out of scope, so it silently never ran, and is now hoisted correctly; the selection used for re-edit detection is now captured before the SDK modules that can clear it are loaded, matching this toolkit's documented safe require order. No render logic change.
 
 0.9.18 - Re-edit wording now covers selecting any part of a formula; live preview is on by default after in-app verification.
 
