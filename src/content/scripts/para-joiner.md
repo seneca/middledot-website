@@ -2,6 +2,7 @@
 title: "Para Joiner"
 description: "Joins selected paragraphs by replacing breaks with a single space."
 pubDate: 2026-09-19
+updatedDate: 2026-10-14
 tags: ["paragraphs", "productivity"]
 images:
   - /images/scripts/para-joiner/para-joiner-01.png
@@ -119,6 +120,10 @@ single undo step without moving you to another page.
   actual text selection.
 
 ## Changelog
+
+1.3.14 - Fixed the spread switch on cross-spread/master-derived joins breaking the single-undo guarantee (now folded into the same compound, matching para-pairs.js); fixed a selection-capture edge case where genuinely separate (unthreaded) stories were silently merged into one nonsensical range instead of being treated as unsupported; removed dead multi-scope plumbing this made unreachable; removed a redundant punctuation guard and a self-contradicting whitespace helper; de-duplicated repeated node-walk and flow-matching passes; template literals throughout
+
+1.3.13 - Marker-probe cleanup now guarded by history position, so a failed scan can no longer leave the temporary style on the text; extracted a shared dedupe helper; added `'use strict'`, named constants, and removed dead code
 
 1.3.12 - Match linked frames by text-flow membership (textFrameInterface.textFlowNodes); Story objects expose no identity primitive, so story-identity grouping could never match across wrappers
 
