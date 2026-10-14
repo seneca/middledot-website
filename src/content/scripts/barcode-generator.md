@@ -2,6 +2,7 @@
 title: "Barcode Generator"
 description: "Print-production barcode studio for EAN-13, ISBN, ISSN, UPC-A, and EAN-8, with price add-ons and live on-canvas preview."
 pubDate: 2026-10-10
+updatedDate: 2026-10-14
 tags: ["barcode", "retail", "print"]
 images:
   - /images/scripts/barcode-generator/barcode-generator-dialog.png
@@ -125,6 +126,8 @@ Proper ISBN hyphenation uses live ISBN-range data when scripting network access 
 - Commit uses two undo steps for container and content.
 
 ## Changelog
+
+1.1.19 - Code-quality pass: non-digit input (e.g. a stray letter) in the "no check digit supplied" ISBN/EAN-13/EAN-8/UPC-A fields now fails with a clear message instead of corrupting the checksum and crashing later; ISSN input now validates its own check character instead of silently discarding it; the script's top-level run is wrapped in try/catch with console logging for field debugging; dialog defaults consolidated into a CONFIG block; duplicate add-on validation logic merged into one function. No user-facing behaviour changes for valid input.
 
 1.1.18 - Corrected add-on digit placement against the measured barcode reference.
 

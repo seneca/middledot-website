@@ -33,7 +33,14 @@ const { Content } = await render(script);
       <section class="download-bar">
         <div class="container">
           <div class="download-bar-inner">
-            <span class="download-bar-label">Download Script</span>
+            <div class="download-bar-labels">
+              <span class="download-bar-label">Download Script</span>
+              {script.data.updatedDate && (
+                <span class="download-bar-updated">
+                  (updated {script.data.updatedDate.toLocaleDateString('en-CA')})
+                </span>
+              )}
+            </div>
             <div class="download-links">
               {script.data.downloads.map((dl) => (
                 <a href={dl} class="btn btn-primary" download>Download</a>
