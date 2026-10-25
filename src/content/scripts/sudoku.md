@@ -2,6 +2,7 @@
 title: "Sudoku Generator"
 description: "Generates valid Sudoku puzzles with unique solutions."
 pubDate: 2026-09-15
+updatedDate: 2026-10-25
 tags: ["sudoku", "generator"]
 images:
   - /images/scripts/sudoku/sudoku-dialog.png
@@ -56,17 +57,25 @@ numbers.
   any number to change it after placement.
 - Grid size should match your page layout; larger grids need more page
   space, especially with the title enabled.
-- The script groups everything under a node named **"Sudoku"** for easy
+- The script places all puzzle elements directly on the spread for easy
   selection and positioning.
 
 ## Known limitations
 
 Each cell, clue, and the title becomes an individually editable
 Affinity object after placement. Moving or resizing cells individually
-can break the grid alignment — use the group node to reposition the
-entire puzzle at once.
+can break the grid alignment — marquee-select the whole puzzle to
+reposition it at once.
 
 ## Changelog
+
+1.0.5 - The font picker now opens pre-selected with the auto-detected default (bold/semibold Helvetica Neue or similar) instead of appearing blank, via the picker's `setFont()`. Still fully overridable before clicking OK.
+
+1.0.4 - Added an optional font picker to the dialog. Leave it blank to keep auto-detecting a font as before; auto-detect and a family-only pick (no specific style chosen) now bias toward bold/semibold instead of regular, since regular rendered too light for clue numbers. Picking an exact style in the picker (e.g. "Helvetica Neue Bold") still honors that exact choice.
+
+1.0.3 - Fixed "Font creation failed: INVALID_ARGS" — `Font.create()` always throws this error in Affinity's SDK, on every system, regardless of which fonts are installed; it was never a missing-font problem. Clue numbers and the title are now resolved via `FontFamily` lookup instead, so the preferred font is actually applied rather than silently falling back to the default. Also fixed a second, independent bug directly behind it that fully blocked the script: positioning the clue numbers/title relied on reading back newly-added nodes before the add command had actually been executed, which this SDK doesn't support. Clue numbers and the title are now measured via a throwaway preview pass and created already centred in the single final command — puzzle generation still commits as one undo step.
+
+1.0.2 - CONFIG object; single undo; try/catch error handling; font error logged; toReversed; modern JS
 
 1.0.1 - Stroke weight now scales with grid size
 
